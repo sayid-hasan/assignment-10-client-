@@ -119,12 +119,6 @@ const Navbar = () => {
                 >
                   Sign in
                 </Link>
-                <Link
-                  to="/register"
-                  className="self-center ml-3 px-8 py-3 font-semibold rounded bg-[#05A081] text-white"
-                >
-                  Sign up
-                </Link>
               </>
             )}
           </>
