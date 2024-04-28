@@ -2,7 +2,12 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        jacquard: '"Jacquard 24", sans-serif',
+        roboto: '"Roboto", serif',
+      },
+    },
   },
   plugins: [require("daisyui")],
 };
