@@ -68,13 +68,13 @@ const Banner = () => {
       <SwiperSlide>
         <div className="relative">
           <img src={"https://i.ibb.co/NYPwQny/carousel-image-2.jpg"} alt="" />
-          <div className="absolute bottom-1 md:top-1/2 md:-translate-y-1/2 rounded-lg md:left-12  glass p-4 md:max-w-[450px] max-w-[200px] ">
+          <div className="absolute bottom-1 md:top-1/2 md:-translate-y-1/2 rounded-lg md:left-12  glass p-4 md:max-w-[450px] max-w-[200px]   ">
             <h2 className="text-[#E17630] md:text-2xl text-xl  font-jacquard">
               Autumn&#39;s Grace: Portrait of a Radiant Maiden
             </h2>
             <p className="font-roboto mt-2 text-sm md:text-base text-white text-opacity-45 mb-2">
               Immerse yourself in the enchanting allure of &#39;Autumn&#39;s
-              Grace&#39;' a captivating portrait capturing the beauty and
+              Grace&#39; a captivating portrait capturing the beauty and
               serenity of a radiant maiden amidst the vibrant hues of fall
               foliage. With a gentle gaze that mirrors the tranquility of the
               forest around her, she stands as a symbol of elegance and

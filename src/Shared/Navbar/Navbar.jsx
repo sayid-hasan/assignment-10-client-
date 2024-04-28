@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Typewriter } from "react-simple-typewriter";
 
 const Navbar = () => {
   const { user, logoutUser, loading } = useContext(AuthContext);
@@ -150,20 +151,30 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[4] p-2 shadow bg-base-100 rounded-box w-52"
             >
               {navlinks}
             </ul>
           </div>
           <a className="btn btn-ghost   animate__animated animate__tada text-3xl md:text-4xl font-bold text-[#05A081] bg-opacity-70 py-5 h-auto min-h-0  ">
             <SiCraftcms></SiCraftcms>
-            <span className="font-jacquard"> Crafty Arty</span>
+            <span className="font-jacquard">
+              <Typewriter
+                words={["Crafty Arty"]}
+                loop={100}
+                cursor
+                cursorStyle="_"
+                typeSpeed={50}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+            </span>
           </a>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navlinks}</ul>
+        <div className="navbar-center hidden lg:flex ">
+          <ul className="menu menu-horizontal px-1 ">{navlinks}</ul>
         </div>
-        <div className="navbar-end">{buttonProfile}</div>
+        <div className="navbar-end z-[4]">{buttonProfile}</div>
       </div>
       <ToastContainer></ToastContainer>
     </div>
