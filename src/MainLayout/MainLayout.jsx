@@ -7,9 +7,11 @@ import Footer from "../Shared/Footer/Footer";
 const MainLayout = () => {
   return (
     <div>
-      <Navbar></Navbar>
-      <div className="min-h-[350px] block">
-        <Outlet></Outlet>
+      <div className="max-w-[1250px] mx-auto ">
+        <Navbar></Navbar>
+        <div className="min-h-[350px] block">
+          <Outlet></Outlet>
+        </div>
       </div>
       <Footer></Footer>
     </div>

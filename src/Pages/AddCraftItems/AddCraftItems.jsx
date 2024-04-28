@@ -1,17 +1,18 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 //import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 //import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const AddCraftItems = () => {
   const { user } = useContext(AuthContext);
 
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -29,10 +30,11 @@ const AddCraftItems = () => {
       rating,
       customzation,
       processing_time,
+      short_description,
       stock_status,
     } = data;
 
-    const item = {
+    const craftitem = {
       user_email,
       item_name,
       user_name,
@@ -42,9 +44,22 @@ const AddCraftItems = () => {
       rating,
       customzation,
       processing_time,
+      short_description,
       stock_status,
     };
-    console.log(item);
+    fetch("http://localhost:5000/craftsitem", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(craftitem),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          toast.success("craft item added in database");
+        }
+      });
     //const from = "/";
     // adding art
   };
