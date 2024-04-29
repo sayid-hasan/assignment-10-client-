@@ -52,7 +52,9 @@ const Router = createBrowserRouter([
         element: <AllArtandCraft></AllArtandCraft>,
       },
       {
-        path: "/myartcraftsItems",
+        path: "/myartcraftsItems/:email",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/mycraftitems/${params.email}`),
         element: (
           <PrivateRoutes>
             <MyartCraftItems></MyartCraftItems>

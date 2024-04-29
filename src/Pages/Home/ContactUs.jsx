@@ -40,7 +40,7 @@ const ContactUs = () => {
               type="text"
               placeholder=""
               className="w-full p-3 rounded dark:bg-gray-100"
-              defaultValue={user.displayName || "Jon Doe"}
+              defaultValue={loading ? user.displayName : "Jon Doe"}
             />
           </div>
           <div>
@@ -50,7 +50,7 @@ const ContactUs = () => {
             <input
               id="email"
               type="email"
-              defaultValue={user.email || "Jon@gmail.com"}
+              defaultValue={loading ? user.displayName : "Jon Doe"}
               className="w-full p-3 rounded dark:bg-gray-100"
             />
           </div>
