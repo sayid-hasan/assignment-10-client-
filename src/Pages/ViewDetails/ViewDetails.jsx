@@ -4,6 +4,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const ViewDetails = () => {
   const craftItem = useLoaderData();
+
   const {
     user_email,
     item_name,
@@ -80,7 +81,6 @@ const ViewDetails = () => {
                         type="radio"
                         name="rating-7"
                         className="mask mask-star-2 bg-orange-400"
-                        checked
                       />
                     </div>
                   </div>

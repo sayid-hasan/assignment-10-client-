@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import CraftItem from "./CraftItem";
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 
 const CraftItems = () => {
+  const { loading } = useContext(AuthContext);
+
   const [craftItems, setCraftItems] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/craftsitems")
@@ -11,7 +14,16 @@ const CraftItems = () => {
         setCraftItems(data);
       });
   }, []);
-  console.log(craftItems);
+  if (loading) {
+    return (
+      <>
+        <div className="flex justify-center">
+          <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#05A081]"></div>
+        </div>
+      </>
+    );
+  }
+
   return (
     <Fade>
       <div className="my-8">
@@ -26,6 +38,7 @@ const CraftItems = () => {
             handmade wonders
           </p>
         </div>
+
         <div className="my-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {craftItems.map((craftItem) => (
             <CraftItem key={craftItem._id} craftItem={craftItem}></CraftItem>
