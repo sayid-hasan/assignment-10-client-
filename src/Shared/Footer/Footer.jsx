@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 const Footer = () => {
   useEffect(() => {
-    AOS.init({ duration: "300", delay: "70" });
+    AOS.init({ duration: "200", delay: "70" });
   }, []);
   return (
     <div data-aos="fade-up">
