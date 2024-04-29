@@ -55,7 +55,7 @@ const Navbar = () => {
           <li className="flex">
             {" "}
             <NavLink
-              to="/userprofile"
+              to="/myartcraftsItems"
               className={` ${({ isActive }) => {
                 console.log(isActive);
               }}flex items-center px-4 rounded-none duration-75 pt-4 uppercase text-base text-[#3a3a3a] `}

@@ -8,6 +8,7 @@ import AddCraftItems from "../Pages/AddCraftItems/AddCraftItems";
 import PrivateRoutes from "./PrivateRoutes";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import AllArtandCraft from "../Pages/AllArtandCraft/AllArtandCraft";
+import MyartCraftItems from "../Pages/MyartCraftItems/MyartCraftItems";
 
 const Router = createBrowserRouter([
   {
@@ -49,6 +50,14 @@ const Router = createBrowserRouter([
         path: "/allartcraftitems",
         loader: () => fetch("http://localhost:5000/allartcraftitems"),
         element: <AllArtandCraft></AllArtandCraft>,
+      },
+      {
+        path: "/myartcraftsItems",
+        element: (
+          <PrivateRoutes>
+            <MyartCraftItems></MyartCraftItems>
+          </PrivateRoutes>
+        ),
       },
     ],
   },
