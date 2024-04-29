@@ -28,7 +28,7 @@ const CraftItems = () => {
         </div>
         <div className="my-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {craftItems.map((craftItem) => (
-            <CraftItem key={craftItem.id} craftItem={craftItem}></CraftItem>
+            <CraftItem key={craftItem._id} craftItem={craftItem}></CraftItem>
           ))}
         </div>
       </div>

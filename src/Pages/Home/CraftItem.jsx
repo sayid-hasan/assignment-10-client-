@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 const CraftItem = ({ craftItem }) => {
   const {
     item_name,
+    _id,
 
     image,
 
@@ -10,6 +12,7 @@ const CraftItem = ({ craftItem }) => {
 
     short_description,
   } = craftItem;
+
   return (
     <div>
       <div className="max-w-xl rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
@@ -42,12 +45,14 @@ const CraftItem = ({ craftItem }) => {
               <span className="text-[#20c1a1] inline-block ml-1">$</span>
             </p>
           </div>
-          <button
-            type="button"
-            className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-[#20c1a1]"
-          >
-            View Details
-          </button>
+          <Link to={`viewdetails/${_id}`}>
+            <button
+              type="button"
+              className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-[#20c1a1]"
+            >
+              View Details
+            </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ import Login from "../Pages/Login/Login";
 import Error from "../Pages/Error/Error";
 import AddCraftItems from "../Pages/AddCraftItems/AddCraftItems";
 import PrivateRoutes from "./PrivateRoutes";
-import CraftItems from "../Pages/Home/CraftItems";
+import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 
 const Router = createBrowserRouter([
   {
@@ -31,6 +31,16 @@ const Router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <AddCraftItems></AddCraftItems>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/viewdetails/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/craftsitems/${params.id}`),
+        element: (
+          <PrivateRoutes>
+            <ViewDetails></ViewDetails>
           </PrivateRoutes>
         ),
       },

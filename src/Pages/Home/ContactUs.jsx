@@ -2,7 +2,16 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 
 const ContactUs = () => {
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
+  if (loading) {
+    return (
+      <>
+        <div className="flex justify-center">
+          <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#05A081]"></div>
+        </div>
+      </>
+    );
+  }
   return (
     <div>
       <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-10 my-8 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 bg-[#05A081] bg-opacity-10 ">
