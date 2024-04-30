@@ -5,7 +5,7 @@ const MyartCraftItem = ({ myCraftsItem }) => {
   const {
     item_name,
     _id,
-    customzation,
+    customization,
     stock_status,
 
     image,
@@ -51,7 +51,7 @@ const MyartCraftItem = ({ myCraftsItem }) => {
           {/* customization and stock_status */}
           <div className="flex justify-between">
             <div className="flex items-center gap-1">
-              <div className="text-xl font-bold">{customzation || "No"}</div>
+              <div className="text-xl font-bold">{customization}</div>
             </div>
             <p className="text-xl font-bold ">{stock_status}</p>
           </div>

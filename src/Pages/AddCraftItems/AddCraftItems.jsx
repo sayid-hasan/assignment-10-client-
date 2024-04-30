@@ -17,6 +17,7 @@ const AddCraftItems = () => {
     register,
     handleSubmit,
     watch,
+    reset,
 
     formState: { errors },
   } = useForm();
@@ -29,7 +30,7 @@ const AddCraftItems = () => {
       sub_category_name,
       price,
       rating,
-      customzation,
+      customization,
       processing_time,
       short_description,
       stock_status,
@@ -43,7 +44,7 @@ const AddCraftItems = () => {
       sub_category_name,
       price,
       rating,
-      customzation,
+      customization,
       processing_time,
       short_description,
       stock_status,
@@ -59,6 +60,7 @@ const AddCraftItems = () => {
       .then((data) => {
         if (data.insertedId) {
           toast.success("craft item added in database");
+          reset();
         }
       });
     //const from = "/";
@@ -79,7 +81,9 @@ const AddCraftItems = () => {
       </Helmet>
       <div className="max-w-xl">
         <div className="w-full   my-5 bg-[#05A081] bg-opacity-5 p-4 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
-          <h1 className="text-2xl font-bold text-center">Add a Craft Items</h1>
+          <h1 className="text-4xl font-bold text-center font-jacquard">
+            Add a Craft Items
+          </h1>
           <form
             onSubmit={handleSubmit(onSubmit)}
             noValidate=""

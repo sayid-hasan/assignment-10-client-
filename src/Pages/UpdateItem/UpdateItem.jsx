@@ -62,10 +62,12 @@ const UpdateItem = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+
         if (data.modifiedCount > 0) {
+          reset();
           Swal.fire({
             title: "Success!",
-            text: "Coffe updated successfully",
+            text: "Item  updated successfully",
             icon: "success",
             confirmButtonText: "Cool",
           });
