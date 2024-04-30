@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const MyartCraftItem = ({ myCraftsItem }) => {
+const MyartCraftItem = ({ myCraftsItem, items, setItems }) => {
   const {
     item_name,
     _id,
@@ -15,6 +16,37 @@ const MyartCraftItem = ({ myCraftsItem }) => {
 
     short_description,
   } = myCraftsItem;
+
+  const handleDelete = (id) => {
+    // console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(` http://localhost:5000/updateItem/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+            }
+            const remaining = items.filter((item) => item._id !== id);
+            setItems(remaining);
+          });
+      }
+    });
+  };
   return (
     <div>
       <div className="max-w-xl rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
@@ -65,8 +97,9 @@ const MyartCraftItem = ({ myCraftsItem }) => {
                 Update
               </button>
             </Link>
-            <Link to={`/`}>
+            <Link>
               <button
+                onClick={() => handleDelete(_id)}
                 type="button"
                 className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md border border-[#20c1a1]"
               >
@@ -89,6 +122,8 @@ const MyartCraftItem = ({ myCraftsItem }) => {
 };
 MyartCraftItem.propTypes = {
   myCraftsItem: PropTypes.object,
+  items: PropTypes.object,
+  setItems: PropTypes.object,
 };
 
 export default MyartCraftItem;
