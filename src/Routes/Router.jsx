@@ -41,7 +41,9 @@ const Router = createBrowserRouter([
       {
         path: "/viewdetails/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/craftsitems/${params.id}`),
+          fetch(
+            `https://assignment-10-server-five-navy.vercel.app/craftsitems/${params.id}`
+          ),
         element: (
           <PrivateRoutes>
             <ViewDetails></ViewDetails>
@@ -50,13 +52,18 @@ const Router = createBrowserRouter([
       },
       {
         path: "/allartcraftitems",
-        loader: () => fetch("http://localhost:5000/allartcraftitems"),
+        loader: () =>
+          fetch(
+            "https://assignment-10-server-five-navy.vercel.app/allartcraftitems"
+          ),
         element: <AllArtandCraft></AllArtandCraft>,
       },
       {
         path: "/myartcraftsItems/:email",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/mycraftitems/${params.email}`),
+          fetch(
+            `https://assignment-10-server-five-navy.vercel.app/mycraftitems/${params.email}`
+          ),
         element: (
           <PrivateRoutes>
             <MyartCraftItems></MyartCraftItems>
@@ -66,7 +73,9 @@ const Router = createBrowserRouter([
       {
         path: "/updateItem/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/updateItem/${params.id}`),
+          fetch(
+            `https://assignment-10-server-five-navy.vercel.app/updateItem/${params.id}`
+          ),
 
         element: (
           <PrivateRoutes>

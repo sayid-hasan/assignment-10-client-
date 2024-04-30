@@ -9,7 +9,7 @@ const CategoriesItems = () => {
   }, []);
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/categoriesItems")
+    fetch("https://assignment-10-server-five-navy.vercel.app/categoriesItems")
       .then((res) => res.json())
       .then((data) => {
         setCategories(data);

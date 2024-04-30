@@ -49,7 +49,7 @@ const AddCraftItems = () => {
       short_description,
       stock_status,
     };
-    fetch("http://localhost:5000/craftsitem", {
+    fetch("https://assignment-10-server-five-navy.vercel.app/craftsitem", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -29,9 +29,12 @@ const MyartCraftItem = ({ myCraftsItem, items, setItems }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(` http://localhost:5000/updateItem/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          ` https://assignment-10-server-five-navy.vercel.app/updateItem/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

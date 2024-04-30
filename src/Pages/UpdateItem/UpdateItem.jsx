@@ -52,13 +52,16 @@ const UpdateItem = () => {
     };
     console.log(craftitem);
     //   send data to server
-    fetch(` http://localhost:5000/updatingItem/${loadedItems._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(craftitem),
-    })
+    fetch(
+      ` https://assignment-10-server-five-navy.vercel.app/updatingItem/${loadedItems._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(craftitem),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

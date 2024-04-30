@@ -9,7 +9,7 @@ const CategoriesPage = () => {
   const { from } = location.state;
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/allartcraftitems")
+    fetch("https://assignment-10-server-five-navy.vercel.app/allartcraftitems")
       .then((res) => res.json())
       .then((data) => {
         const matchedCategories = data.filter(
