@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import MyartCraftItem from "./MyartCraftItem";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const MyartCraftItems = () => {
   const myCraftsItems = useLoaderData();
@@ -16,16 +16,7 @@ const MyartCraftItems = () => {
       );
       setItems(filtredItems);
     }
-  //   fetch(`http://localhost:5000/craftsitems/${drop}`, {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => console.log(data));
-  // };
+  };
 
   return (
     <div>
