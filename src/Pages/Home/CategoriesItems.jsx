@@ -15,7 +15,7 @@ const CategoriesItems = () => {
         setCategories(data);
       });
   }, []);
-  console.log(categories);
+  //console.log(categories);
   return (
     <div data-aos="fade-up">
       <div className="my-5 font-roboto">

@@ -150,6 +150,32 @@ const AddCraftItems = () => {
                 >
                   Sub-Category Name
                 </label>
+                <select
+                  className="w-full px-4 py-3 rounded-md focus:border-[#05A081] dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+                  name="sub_category_name"
+                  id="sub_category_name"
+                  defaultValue="0"
+                  {...register("sub_category_name", {
+                    required: true,
+                  })}
+                >
+                  <option value="0">Select some option...</option>
+                  <option value="Landscape Painting">Landscape Painting</option>
+                  <option value="Portrait Drawing">Portrait Drawing</option>
+                  <option value="Watercolour Painting">
+                    Watercolour Painting
+                  </option>
+                  <option value="Oil Painting">Oil Painting</option>
+                  <option value="Charcoal Sketching">Charcoal Sketching</option>
+                  <option value="Cartoon Drawing">Cartoon Drawing</option>
+                </select>
+
+                {/* <label
+                  htmlFor="sub_category_name"
+                  className="block dark:text-gray-600"
+                >
+                  Sub-Category Name
+                </label>
                 <input
                   type="text"
                   name="sub_category_name"
@@ -159,7 +185,7 @@ const AddCraftItems = () => {
                   })}
                   placeholder="Sub-Category"
                   className="w-full px-4 py-3 rounded-md focus:border-[#05A081] dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
-                />
+                /> */}
 
                 <span className="font-semibold text-red-600">
                   {errors.sub_category_name?.type === "required" &&

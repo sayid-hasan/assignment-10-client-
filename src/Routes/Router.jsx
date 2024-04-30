@@ -10,6 +10,7 @@ import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import AllArtandCraft from "../Pages/AllArtandCraft/AllArtandCraft";
 import MyartCraftItems from "../Pages/MyartCraftItems/MyartCraftItems";
 import UpdateItem from "../Pages/UpdateItem/UpdateItem";
+import CategoriesPage from "../Pages/CategoriesPage/CategoriesPage";
 
 const Router = createBrowserRouter([
   {
@@ -72,6 +73,11 @@ const Router = createBrowserRouter([
             <UpdateItem></UpdateItem>
           </PrivateRoutes>
         ),
+      },
+      {
+        path: "/categorypage/:subcategory",
+
+        element: <CategoriesPage></CategoriesPage>,
       },
     ],
   },

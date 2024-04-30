@@ -50,7 +50,7 @@ const ContactUs = () => {
             <input
               id="email"
               type="email"
-              defaultValue={loading ? user.displayName : "Jon Doe"}
+              defaultValue={loading ? user.displayName : "Jondoe@gmail.com"}
               className="w-full p-3 rounded dark:bg-gray-100"
             />
           </div>
