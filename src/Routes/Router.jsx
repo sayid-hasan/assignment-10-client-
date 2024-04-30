@@ -9,6 +9,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import AllArtandCraft from "../Pages/AllArtandCraft/AllArtandCraft";
 import MyartCraftItems from "../Pages/MyartCraftItems/MyartCraftItems";
+import UpdateItem from "../Pages/UpdateItem/UpdateItem";
 
 const Router = createBrowserRouter([
   {
@@ -58,6 +59,17 @@ const Router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <MyartCraftItems></MyartCraftItems>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/updateItem/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/updateItem/${params.id}`),
+
+        element: (
+          <PrivateRoutes>
+            <UpdateItem></UpdateItem>
           </PrivateRoutes>
         ),
       },

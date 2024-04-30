@@ -5,6 +5,8 @@ const MyartCraftItem = ({ myCraftsItem }) => {
   const {
     item_name,
     _id,
+    customzation,
+    stock_status,
 
     image,
 
@@ -28,6 +30,7 @@ const MyartCraftItem = ({ myCraftsItem }) => {
             </h2>
             <p className="min-h-[80px]">{short_description.slice(0, 100)}...</p>
           </div>
+          {/* price and rating */}
           <div className="flex justify-between">
             <div className="flex items-center gap-1">
               <div className="text-xl font-bold">{rating}</div>
@@ -44,6 +47,32 @@ const MyartCraftItem = ({ myCraftsItem }) => {
               {price}
               <span className="text-[#20c1a1] inline-block ml-1">$</span>
             </p>
+          </div>
+          {/* customization and stock_status */}
+          <div className="flex justify-between">
+            <div className="flex items-center gap-1">
+              <div className="text-xl font-bold">{customzation || "No"}</div>
+            </div>
+            <p className="text-xl font-bold ">{stock_status}</p>
+          </div>
+          {/* update and delete */}
+          <div className="flex justify-between">
+            <Link to={`/updateItem/${_id}`}>
+              <button
+                type="button"
+                className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md border border-[#20c1a1]"
+              >
+                Update
+              </button>
+            </Link>
+            <Link to={`/`}>
+              <button
+                type="button"
+                className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md border border-[#20c1a1]"
+              >
+                Delete
+              </button>
+            </Link>
           </div>
           <Link to={`/viewdetails/${_id}`}>
             <button

@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 // import { useNavigate } from "react-router-dom";
 
 //import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
@@ -7,9 +8,10 @@ import { useForm } from "react-hook-form";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
-import { toast } from "react-toastify";
+import { useLoaderData } from "react-router-dom";
 
-const AddCraftItems = () => {
+const UpdateItem = () => {
+  const loadedItems = useLoaderData();
   const { user } = useContext(AuthContext);
 
   //const navigate = useNavigate();
@@ -17,7 +19,7 @@ const AddCraftItems = () => {
     register,
     handleSubmit,
     watch,
-
+    reset,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
@@ -29,7 +31,7 @@ const AddCraftItems = () => {
       sub_category_name,
       price,
       rating,
-      customzation,
+      customization,
       processing_time,
       short_description,
       stock_status,
@@ -43,13 +45,15 @@ const AddCraftItems = () => {
       sub_category_name,
       price,
       rating,
-      customzation,
+      customization,
       processing_time,
       short_description,
       stock_status,
     };
-    fetch("http://localhost:5000/craftsitem", {
-      method: "POST",
+    console.log(craftitem);
+    //   send data to server
+    fetch(` http://localhost:5000/updatingItem/${loadedItems._id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -57,8 +61,14 @@ const AddCraftItems = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.insertedId) {
-          toast.success("craft item added in database");
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            title: "Success!",
+            text: "Coffe updated successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
         }
       });
     //const from = "/";
@@ -75,11 +85,13 @@ const AddCraftItems = () => {
   return (
     <div className=" mx-auto max-w-xl ">
       <Helmet>
-        <title>Register</title>
+        <title>Update Item Info</title>
       </Helmet>
       <div className="max-w-xl">
         <div className="w-full   my-5 bg-[#05A081] bg-opacity-5 p-4 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
-          <h1 className="text-2xl font-bold text-center">Add a Craft Items</h1>
+          <h1 className="text-3xl font-jacquard text-[#05A081] font-bold text-center">
+            Update Craft Items
+          </h1>
           <form
             onSubmit={handleSubmit(onSubmit)}
             noValidate=""
@@ -98,6 +110,7 @@ const AddCraftItems = () => {
                   type="text"
                   name="item_name"
                   id="item_name"
+                  defaultValue={loadedItems.item_name}
                   {...register("item_name", {
                     required: true,
                   })}
@@ -121,6 +134,7 @@ const AddCraftItems = () => {
                   type="text"
                   name="image"
                   id="image"
+                  defaultValue={loadedItems.image}
                   {...register("image", {
                     pattern: /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/,
                   })}
@@ -150,6 +164,7 @@ const AddCraftItems = () => {
                   type="text"
                   name="sub_category_name"
                   id="sub_category_name"
+                  defaultValue={loadedItems.sub_category_name}
                   {...register("sub_category_name", {
                     required: true,
                   })}
@@ -159,7 +174,7 @@ const AddCraftItems = () => {
 
                 <span className="font-semibold text-red-600">
                   {errors.sub_category_name?.type === "required" &&
-                    "short description is required"}
+                    "Sub-category is required"}
                 </span>
               </div>
 
@@ -175,6 +190,7 @@ const AddCraftItems = () => {
                   type="text"
                   name="short_description"
                   id="short_description"
+                  defaultValue={loadedItems.short_description}
                   {...register("short_description")}
                   placeholder="Description here"
                   className="w-full px-4 py-3 rounded-md focus:border-[#05A081] dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
@@ -194,6 +210,7 @@ const AddCraftItems = () => {
                   type="text"
                   name="price"
                   id="price"
+                  defaultValue={loadedItems.price}
                   {...register("price", {
                     required: true,
                   })}
@@ -215,6 +232,7 @@ const AddCraftItems = () => {
                   type="text"
                   name="rating"
                   id="rating"
+                  defaultValue={loadedItems.rating}
                   {...register("rating", {
                     required: true,
                   })}
@@ -222,7 +240,7 @@ const AddCraftItems = () => {
                   className="w-full px-4 py-3 rounded-md focus:border-[#05A081] dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
                 />
                 <span className="font-semibold text-red-600">
-                  {errors.price?.type === "required" && "Price is required"}
+                  {errors.price?.type === "required" && "rating is required"}
                 </span>
               </div>
             </div>
@@ -240,16 +258,18 @@ const AddCraftItems = () => {
                 <input
                   type="text"
                   name="customization"
+                  defaultValue={loadedItems.customization}
                   id="customization"
                   {...register("customization", {
                     required: true,
                   })}
-                  placeholder="Price"
+                  placeholder="y/N"
                   className="w-full px-4 py-3 rounded-md focus:border-[#05A081] dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
                 />
 
                 <span className="font-semibold text-red-600">
-                  {errors.price?.type === "required" && "Price is required"}
+                  {errors.price?.type === "required" &&
+                    "customization is required"}
                 </span>
               </div>
 
@@ -265,6 +285,7 @@ const AddCraftItems = () => {
                   type="text"
                   name="processing_time"
                   id="processing_time"
+                  defaultValue={loadedItems.processing_time}
                   {...register("processing_time", {
                     required: true,
                   })}
@@ -272,7 +293,8 @@ const AddCraftItems = () => {
                   className="w-full px-4 py-3 rounded-md focus:border-[#05A081] dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
                 />
                 <span className="font-semibold text-red-600">
-                  {errors.price?.type === "required" && "Price is required"}
+                  {errors.price?.type === "required" &&
+                    "processing time is required"}
                 </span>
               </div>
             </div>
@@ -348,6 +370,7 @@ const AddCraftItems = () => {
                   type="text"
                   name="stock_status"
                   id="stock_status"
+                  defaultValue={loadedItems.stock_status}
                   {...register("stock_status", {
                     required: true,
                   })}
@@ -357,13 +380,13 @@ const AddCraftItems = () => {
 
                 <span className="font-semibold text-red-600">
                   {errors.stock_status?.type === "required" &&
-                    "Name is required"}
+                    "stock is required"}
                 </span>
               </div>
             </div>
 
             <button className="block w-full p-3 text-center rounded-lg bg-[#05A081]  text-white font-bold  dark:text-gray-50 dark:bg-violet-600">
-              Add
+              Update
             </button>
           </form>
         </div>
@@ -373,4 +396,4 @@ const AddCraftItems = () => {
   );
 };
 
-export default AddCraftItems;
+export default UpdateItem;
