@@ -15,7 +15,7 @@ const CategoriesPageItem = ({ item }) => {
     stock_status,
   } = item;
   return (
-    <div>
+    <div className="">
       <div className="max-w-xl rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
         <img
           src={image}

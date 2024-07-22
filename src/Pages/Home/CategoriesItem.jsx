@@ -8,14 +8,17 @@ const CategoriesItem = ({ item }) => {
       state={{ from: sub_category_name }}
     >
       <div>
-        <div className="card  bg-base-100 rounded-sm shadow-xl">
-          <div className="card-body">
-            <h2 className="text-green-300 min-h-5 text-center">
+        <div className="card  bg-base-100 rounded-sm shadow-xl box-border ">
+          <div className="card-body relative ">
+            <h2 className="text-[#8750fd] font-black min-h-5 text-center absolute bottom-1 left-1/2 -translate-x-1/2">
               {sub_category_name}
             </h2>
-          </div>
-          <div className="object-cover object-center">
-            <img src={image} className="h-[200px] w-full" />
+            <div className="object-cover object-center h-[250px] w-full box-border rounded-md">
+              <img
+                src={image}
+                className=" object-cover object-center rounded-md h-[250px] w-full hover:scale-105 transition-all duration-300"
+              />
+            </div>
           </div>
         </div>
       </div>
