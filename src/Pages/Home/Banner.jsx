@@ -34,7 +34,7 @@ const Banner = () => {
       <SwiperSlide>
         <div>
           <div className="flex  flex-col md:relative" data-aos="fade-right">
-            <img src={"https://i.ibb.co/XYvhyD4/carousel-image-1.jpg"} alt="" />
+            <img src={"https://i.imgur.com/rYehCDr.jpg"} alt="" />
             <div className="block max-w-full md:absolute bottom-1 lg:top-1/2 lg:-translate-y-1/2 rounded-lg lg:left-12  glass lg:p-4 md:p-2 md:max-w-full md:bottom-0  lg:max-w-[450px]  ">
               <h2 className="text-[#102E56] md:text-2xl text-xl  font-jacquard">
                 Serenity in Shades: Mountain Lake Landscape Painting
@@ -50,7 +50,7 @@ const Banner = () => {
       </SwiperSlide>
       <SwiperSlide>
         <div className="flex  flex-col md:relative">
-          <img src={"https://i.ibb.co/CJvRBQH/carousel-image-3.jpg"} alt="" />
+          <img src={"https://i.imgur.com/Vw9JTWK.jpg"} alt="" />
           <div className="block max-w-full md:absolute bottom-1 lg:top-1/2 lg:-translate-y-1/2 rounded-lg lg:left-12  glass lg:p-4 md:p-2 md:max-w-full md:bottom-0  lg:max-w-[450px]  ">
             <h2 className="text-[#FC736B] md:text-2xl text-xl  font-jacquard">
               Whispers of Eternity: Enigmatic Night Sky Oil Painting
@@ -67,7 +67,7 @@ const Banner = () => {
       </SwiperSlide>
       <SwiperSlide>
         <div className="flex  flex-col md:relative">
-          <img src={"https://i.ibb.co/NYPwQny/carousel-image-2.jpg"} alt="" />
+          <img src={"https://i.imgur.com/9QaSxg6.jpg"} alt="" />
           <div className="block max-w-full md:absolute bottom-1 lg:top-1/2 lg:-translate-y-1/2 rounded-lg lg:left-12  glass lg:p-4 md:p-2 md:max-w-full md:bottom-0  lg:max-w-[450px]  ">
             <h2 className="text-[#E17630] md:text-2xl text-xl  font-jacquard">
               Autumn&#39;s Grace: Portrait of a Radiant Maiden
